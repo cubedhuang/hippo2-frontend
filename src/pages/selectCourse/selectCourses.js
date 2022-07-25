@@ -98,7 +98,7 @@ function SelectCourses() {
 			} 
 			leftRightRatio={'2:3'}
 			maxWidth={'3xl'} 
-			developers={[]}
+			developers={['Alex (22)', 'Hyrum (23)']}
 		>
 		</Page>
 	);

@@ -4,8 +4,15 @@ import HippoSVG from '../../hippo.svg';
 
 function TTLogo({ className, developers }) {
 	let developerString = '';
-	if (developers) {
+	
+	let devs;
+	if ((developers) && (developers.length > 0)) {
 		developerString = developers.join(', ');
+		devs = (
+			<p><span>Software Developers: </span> {developerString} </p>
+		);
+	} else {
+		devs = null;
 	}
 
 	return (
@@ -26,7 +33,7 @@ function TTLogo({ className, developers }) {
 					<p><span>Product Manager: </span> Sricharan Guddanti (19)</p>
 					<p><span>Product Designer: </span> Bernice Lau (18)</p>
 					<p><span>Engineering Managers: </span> Jackson Choyce (19), Alexander Zhou (18)</p>
-					<p><span>Software Developers: </span> {developerString} </p>
+					{devs}
 				</div>
 			</div>
 		</div>

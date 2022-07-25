@@ -47,6 +47,7 @@ function TaxDetails () {
 			}
 			leftRightRatio='5:7'
 			maxWidth = '3xl'
+			developers = {['Hyrum (23)']}
 		/>
 	);
 }
