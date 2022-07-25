@@ -57,7 +57,6 @@ function BatchBoard({ batchData, batchID, onChange, className, price, disabledID
 					<p className={`price ${price ? '' : 'hidden'}`}>
 						<span>from</span>
 						<span className="number">${price}</span>
-						<span>(Early Bird)</span>
 					</p>
 				</button>
 			);
