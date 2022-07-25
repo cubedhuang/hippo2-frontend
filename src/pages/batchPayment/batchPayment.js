@@ -140,10 +140,10 @@ function BatchPayment() {
 						<p className="text-lg font-semibold">{data.course.name}</p>
 						<p className="text-base">${data.course.price}</p>
 					</div>
-					<div className="mb-8 text-lg font-semibold">
-						<p>Student Name: {data.user.first_name} {data.user.last_name}</p>
+					<div className="mb-8 text-lg">
+						<p><span className='font-semibold'>Student Name: </span> {data.user.first_name} {data.user.last_name}</p>
 						<p>
-							Batch: {data.batch.name} ({data.batch.time_zone}) {data.batch.start_date}-{data.batch.end_date}
+							<span className='font-semibold'>Batch: </span> {data.batch.name} ({data.batch.time_zone}) {data.batch.start_date}-{data.batch.end_date}
 						</p>
 					</div>
 
