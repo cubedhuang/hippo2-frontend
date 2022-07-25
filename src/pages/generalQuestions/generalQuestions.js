@@ -1,10 +1,10 @@
-import useState from 'react';
+import { useState } from 'react';
 import QuestionInput from '../../components/questionInputs/questionInput';
 import ScholarshipBanner from '../../components/ScholarshipBanner/ScholarshipBanner';
 import Button from '../../components/button/button';
 
 function GeneralQuestions() {
-	const [option, selectOption] = useState('');
+	const [option, setOption] = useState('');
 
 	return (
 		<>
@@ -27,7 +27,7 @@ function GeneralQuestions() {
 						question="How did you learn about the AI Camp scholarship?"
 						radioDict={{ 'Option 1': '1', 'Option 2': '2', 'Option 3': '3', 'Other': '' }}
 						value={option}
-						setValue={selectOption}
+						setValue={setOption}
 					/>
 					<QuestionInput
 						questionNum={"3."}
