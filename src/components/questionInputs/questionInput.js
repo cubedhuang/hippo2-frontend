@@ -19,14 +19,14 @@ function QuestionInput({ placeHolder, question, radioDict, value, setValue, isVa
 		radioList = Object.entries(radioDict).map(([key, val]) => {
 			if (val !== '') {
 				return (
-					<div className= "flex md:items-center pr-3">
-						<input id={key} type='checkbox' value={val} name={name} onClick={() => setValue(val)} checked={value === val}/>
-						<label for={key} class="ml-2 text-sm font-semibold text-gray-400"> {key}</label>
+					<div key={key} className="flex md:items-center pr-3">
+						<input id={key} type='checkbox' value={val} name={name} onChange={() => setValue(val)} checked={value === val}/>
+						<label htmlFor={key} className="ml-2 text-sm font-semibold text-gray-400"> {key}</label>
 					</div>
 				);
 			} else {
 				return (
-					<div class="pl-2 md:flex items-center">
+					<div key={key} className="pl-2 md:flex items-center">
 						<input id={key} type="text" 
 							placeholder={key} value={valueList.includes(value) ? '' : value} 
 							onChange={(e) => {
