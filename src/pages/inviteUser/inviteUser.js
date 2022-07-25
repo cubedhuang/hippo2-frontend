@@ -174,7 +174,7 @@ function InviteUser() {
 			} 
 			leftRightRatio={'5:7'}
 			maxWidth={'3xl'} 
-			developers={[]}
+			developers={['Ray (14)', 'Zac (18)', 'Hyrum (23)']}
 		>
 		</Page>
 	);

@@ -19,7 +19,7 @@ function Dashboard({ isStudentRegistered }) {
 							<Link 
 								to='' 
 								className={`px-3 py-1 ${tail === 'dashboard' ? 'text-gray-500 cursor-default pointer-events-none' : ''}`}
-								onClick = {() => setDevs(['Matthew (14)', 'Alex (22)', 'Zac (18)', 'Sean (16)'])}
+								onClick = {() => setDevs(['Matthew (14)', 'Alex (22)', 'Zac (18)', 'Sean (16)', 'Hyrum (23)'])}
 							>
 								Dashboard Home
 							</Link>
@@ -28,7 +28,7 @@ function Dashboard({ isStudentRegistered }) {
 							<Link 
 								to='todo' 
 								className={`px-3 py-1 ${tail === 'todo' ? 'text-gray-500 cursor-default pointer-events-none' : ''}`}
-								onClick = {() => setDevs(['Zac (18)', 'Alex (22)'])}
+								onClick = {() => setDevs(['Zac (18)', 'Alex (22)', 'Hyrum (23)'])}
 							>
 								To Do List
 							</Link>
