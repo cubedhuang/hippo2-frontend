@@ -78,7 +78,7 @@ function OrderCancel () {
 				<h4 className="text-xl mb-3 mt-10 text-center font-semibold">Refund Policy</h4>
 					
 				<div className="mb-4 mt-5 ml-16 mr-16 text-center" >
-					<p className="mb-3 text-sm font-light pr-4">We hope to see you again. Please note that refunds are only available if you cancel your course before the deadline, and Stripe's processing fees from the transaction will not be refunded. Click <a className="text-blue-700 hover:text-blue-600 my-5 underline" href="https://support.stripe.com/questions/understanding-fees-for-refunded-payments">here</a> for more information on Stripe's refund fees.</p>
+					<p className="mb-3 text-sm font-light pr-4">We hope to see you again. Please note that refunds are only available if you cancel your course before the deadline, and Stripe's processing fees from the transaction will not be refunded. Click <a className="text-blue-700 hover:text-blue-600 underline" target="_blank" rel="noopener noreferrer" href="https://support.stripe.com/questions/understanding-fees-for-refunded-payments">here</a> for more information on Stripe's refund fees.</p>
 				</div>
 
 				<div className="flex ml-12 mr-12 mt-10">
