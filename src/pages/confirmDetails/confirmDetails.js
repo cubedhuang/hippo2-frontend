@@ -30,7 +30,7 @@ function ConfirmDetails() {
 	}
 	
 	const onSubmit = () => {
-		// executes when the Proceed to Dashboard button is clicked or when form is submitted
+		// executes when the Done button is clicked or when form is submitted
 		setFormErrors({});
 		const info = {
 			fName,
@@ -140,7 +140,7 @@ function ConfirmDetails() {
 					</div>
 		
 					<div className="grow-0">
-						<Button bgColor="green" txtColor="white" className="w-full py-1" onClick={() => onSubmit()}>Proceed to Dashboard</Button>
+						<Button bgColor="green" txtColor="white" className="w-full py-1" onClick={() => onSubmit()}>Done</Button>
 					</div>
 				</form>
 			} 

@@ -58,7 +58,7 @@ function PaymentSuccess() {
 						bgColor="green" txtColor="white" className="col-span-3 my-2 mb-8 py-3 w-full"
 						onClick={() => studentDashboard()}
 					>
-						Proceed to Student Dashboard
+						Proceed to Dashboard
 					</Button>
 				</>
 			} 
