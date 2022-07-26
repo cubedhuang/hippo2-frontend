@@ -28,8 +28,6 @@ function ScholarshipSelectCourse() {
 		const [err] = validateUuid(courseId);
 		if (err) {
 			setErrorMessage('Please choose a course');
-		} else {
-			navigate(`/courses/${courseId}/batches`);
 		}
 	};
 
