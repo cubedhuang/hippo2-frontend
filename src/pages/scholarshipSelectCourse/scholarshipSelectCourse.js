@@ -6,7 +6,7 @@ import validateUuid from "../../validation/uuid";
 import baseUrl from '../../apiUrls';
 import Button from "../../components/button/button";
 import Page from "../../components/page/page";
-import 'react-phone-input-2/lib/style.css';
+
 
 function ScholarshipSelectCourse() {
 	const navigate = useNavigate();
