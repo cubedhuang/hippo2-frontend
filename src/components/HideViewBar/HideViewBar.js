@@ -32,7 +32,7 @@ function HideViewBar(prop) {
 
 	return (
 		<>
-			<div className="flex-none md:flex-initial w-full py-5 px-8 bg-gray-300 rounded-b-xl rounded-none">
+			<div className="flex-none md:flex-initial w-full py-5 px-8 trxn-gray rounded-b-xl rounded-none">
 				<div className="flex items-center justify-center h-0">
 					<Button className="text-2xl flex font-semibold items-center justify-center px-20" onClick={hideView}>
 						{HideViewButton}
