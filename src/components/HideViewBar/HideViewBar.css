@@ -79,6 +79,7 @@
 .upArrow{
 	transform: rotate(225deg);
 } 
-  
-  
-  
+
+.trxn-gray {
+	background-color: #C3C3C3;
+}
