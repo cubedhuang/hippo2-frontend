@@ -1,18 +1,20 @@
 import Page from "../../components/page/page";
 import Button from "../../components/button/button";
+import { useNavigate } from "react-router-dom";
 
 function TaxDetails () {
+	const navigate = useNavigate();
+
+	const onBack = () => {
+		navigate('/scholarship/courses/<courseId>/application');
+	};
 
 	const fileUpload = () => {
 		//Dummy for now
 	};
 
-	const onBack = () => {
-		//Dummy for now
-	};
-
 	const onSubmit = () => {
-		//Dummy for now
+		navigate('/dashboard');
 	};
 
 	return (
