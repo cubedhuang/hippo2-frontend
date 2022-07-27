@@ -42,7 +42,7 @@ function BatchSelect() {
 		const id = batch.id;
 		const [err] = validateUuid(id);
 		if (err) {
-			flashMsg('error', 'Invalid batch');
+			flashMsg('error', 'Please select an available batch');
 		} else if (user.type === "PARENT") {
 			const path = `/batches/${id}/student-selection`;
 			navigate(path); 
