@@ -6,6 +6,7 @@ import baseUrl from "../../../apiUrls";
 import Button from "../../../components/button/button";
 import Loading from "../../loading/loading";
 import HideViewBar from "../../../components/HideViewBar/HideViewBar";
+import './courseDetails.css';
 
 function DashboardCourseDetails({ setIsStudentRegistered }) {
 	const [courses, setCourses] = useState(null);
@@ -73,7 +74,7 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 							<Button bgColor="white" txtColor="black" className="w-2/3 py-1">Cancel Your Course</Button>
 						</Link>
 					</div>
-					<div className="flex-none md:flex-initial w-full md:w-5/12 py-8 px-16 pb-10 bg-stone-300  md:rounded-tr-xl md:rounded-none">
+					<div className="flex-none md:flex-initial w-full md:w-5/12 py-8 px-16 pb-10 materials-gray md:rounded-tr-xl md:rounded-none">
 						<h1 className="font-semibold text-2xl mb-10 text-center">Course Materials</h1>
 						{courseTasks[course.id] ? 
 							<Link to = 'todo'>
