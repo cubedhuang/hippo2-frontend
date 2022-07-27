@@ -29,6 +29,7 @@ function ScholarshipSelectCourse() {
 		if (err) {
 			setErrorMessage('Please choose a course');
 		}
+		navigate('/scholarship/courses/<courseId>/general');
 	};
 
 	useEffect(() => {
