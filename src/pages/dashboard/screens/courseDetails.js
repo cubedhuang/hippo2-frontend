@@ -34,6 +34,7 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 			// fetch incomplete tasks from API
 			const courseTaskDict = {};
 			for (let course of data.data) {
+				if (scholarshipData.filter(order => order.id === course.id).length > 0) continue; // remove duplicates
 				courseTaskDict[course.id] = (await auth.autoAuthReq(baseUrl + `/api/v1/orders/${course.id}/tasks/?countonly=true`, { method: 'GET' })).data.count > 0;
 			}
 
@@ -104,8 +105,8 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 	const registerForCoursesDiv = (
 		<div className="mx-6 mt-12 p-5 text-center bg-white rounded-2xl">
 			<h1 className="font-semibold text-2xl mb-6">Start
-				your {auth.user.type === 'parent' ? 'child\'s AI' : ''} journey with an AI Camp course!</h1>
-			<p className="mb-8">{auth.user.type === 'parent' ?
+				your {auth.user.type === 'PARENT' ? 'child\'s AI' : ''} journey with an AI Camp course!</h1>
+			<p className="mb-8">{auth.user.type === 'PARENT' ?
 				'Your child is not registered for any courses or incubators. Register to reserve a spot now! Spots are filling up quick!' :
 				'You are not registered for any courses or incubators. Register to reserve your spot now! Spots are filling up quick!'}</p>
 			<Link to="/courses" className="w-full md:px-6 lg:px-24 block max-w-4xl mx-auto">
@@ -123,22 +124,20 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 					registerForCoursesDiv
 				);
 			} else if (scholarships.length > 0) {
-				const scholarshipOrder = scholarships[0];
-				if (scholarshipOrder.scholarship.status.startsWith('ACCEPTED_')) {
-					// booked, scholarship accepted
-					const scholarshipText = scholarshipOrder.scholarship.name;
+				const scholarshipList = [];
+				let hasAcceptedScholarship = false;
+				let registerForCourses = false;
 
-					return (
-						<>
-							<div className="bg-red-500 w-full text-white text-center py-6">
-								<div>
-									<p className="text-2xl">{auth.user.type === 'parent' ?
-										`Congratulations! Claim Your Child's Scholarship to Reserve a Spot Now!` :
-										`Congratulations! Claim Your Scholarship to Reserve Your Spot Now!`}</p>
-								</div>
-							</div>
+				for (const scholarshipOrder of scholarships) {
+					if (scholarshipOrder.scholarship.status.startsWith('ACCEPTED_')) {
+						// booked, scholarship accepted
+						hasAcceptedScholarship = true;
+						if (registerForCourses) registerForCourses = false;
 
-							<div className="container flex flex-wrap mx-auto mt-12 px-6 pb-6">
+						const scholarshipText = scholarshipOrder.scholarship.name;
+
+						scholarshipList.push((
+							<div className="container flex flex-wrap mx-auto mb-10 px-6 pb-6" key={scholarshipOrder.id}>
 								<div className="flex-none md:flex-initial w-full md:w-7/12 py-8 px-16 pb-10 text-lg text-black bg-white rounded-t-xl md:rounded-l-xl md:rounded-none">
 									<h1 className="font-semibold text-2xl mb-8 text-center">Course Information</h1>
 									<p className="mb-5"><b className="font-semibold">Student Name: </b>{scholarshipOrder.user.first_name} {scholarshipOrder.user.last_name}</p>
@@ -146,30 +145,52 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 									<p className="mb-1"><b className="font-semibold">Scholarship Status: </b><span className="text-green-500">{scholarshipText}</span></p>
 									<p className="text-sm">Your spot is not reserved until payment is received. Register now to save your spot!</p>
 								</div>
-								<div className="flex-none md:flex-initial w-full md:w-5/12 py-8 px-16 pb-10 bg-stone-300  md:rounded-r-xl md:rounded-none">
+								<div className="flex-none md:flex-initial w-full md:w-5/12 py-8 px-16 pb-10 bg-stone-300 md:rounded-r-xl md:rounded-none">
 									<h1 className="font-semibold text-2xl mb-10 text-center">Scholarship Materials</h1>
 									<Button bgColor="white" txtColor="black" className="w-full py-2 mb-4 text-center">Claim Scholarship<br /><span className="text-sm italic">Deadline: 6/1</span></Button>
 								</div>
 							</div>
-						</>
-					);
-				} else {
-					// haven't booked, applied for scholarship
-					// TODO: remove placeholder scholarship decision date (6/1/2022)
-					return (
-						<div className="container flex flex-wrap mx-auto mt-12 px-6 pb-6 mb-8">
-							<div className="flex-none w-full py-8 px-16 pb-10 text-lg text-black bg-white rounded-xl">
-								<h1 className="font-semibold text-2xl mb-8 text-center">Course Information</h1>
-								<p className="mb-5"><b className="font-semibold">Student Name: </b>{scholarshipOrder.user.first_name} {scholarshipOrder.user.last_name}</p>
-								<p className="mb-5"><b className="font-semibold">Course: </b>{scholarshipOrder.course.name}</p>
-								<p className="mb-1"><b className="font-semibold">Scholarship Status: </b><span className="text-yellow-400">Application Submitted, In Review</span></p>
-								<p className="text-md">Your spot is not reserved until payment is received. Register now to save your spot!<br />Scholarship decisions will be released by 6/1/2022.</p>
-							</div>
+						));
+					} else {
+						// haven't booked, applied for scholarship
+						// TODO: remove placeholder scholarship decision date (6/1/2022)
 
+						if (!hasAcceptedScholarship) registerForCourses = true;
+						scholarshipList.push((
+							<div className="container flex flex-wrap mx-auto mb-10 px-6 pb-6 mb-8">
+								<div className="flex-none w-full py-8 px-16 pb-10 text-lg text-black bg-white rounded-xl">
+									<h1 className="font-semibold text-2xl mb-8 text-center">Course Information</h1>
+									<p className="mb-5"><b className="font-semibold">Student Name: </b>{scholarshipOrder.user.first_name} {scholarshipOrder.user.last_name}</p>
+									<p className="mb-5"><b className="font-semibold">Course: </b>{scholarshipOrder.course.name}</p>
+									<p className="mb-1"><b className="font-semibold">Scholarship Status: </b><span className="text-yellow-400">Application Submitted, In Review</span></p>
+									<p className="text-sm">Your spot is not reserved until payment is received. Register now to save your spot!<br />Scholarship decisions will be released by 6/1/2022.</p>
+								</div>
+							</div>
+						));
+					}
+				}
+
+				return (
+					<>
+						{hasAcceptedScholarship ? <div className="bg-red-500 w-full text-white text-center py-6">
+							<div>
+								<p className="text-2xl">{auth.user.type === 'PARENT' ?
+									`Congratulations! Claim Your Child's Scholarship to Reserve a Spot Now!` :
+									`Congratulations! Claim Your Scholarship to Reserve Your Spot Now!`}</p>
+							</div>
+						</div> : null}
+
+						<div className="mt-10">
+							{scholarshipList}
+						</div>
+
+						{coursesList}
+
+						{registerForCourses ? <div className="container flex flex-wrap mx-auto mt-12 px-6 pb-6 mb-8">
 							<div className="flex-none w-full mt-12 p-5 text-center bg-white rounded-2xl">
 								<h1 className="font-semibold text-2xl mb-6">Start
-									your {auth.user.type === 'parent' ? 'child\'s AI' : ''} journey with an AI Camp course!</h1>
-								<p className="mb-8">{auth.user.type === 'parent' ?
+									your {auth.user.type === 'PARENT' ? 'child\'s AI' : ''} journey with an AI Camp course!</h1>
+								<p className="mb-8">{auth.user.type === 'PARENT' ?
 									'Your child is not registered for any courses or incubators. Register to reserve a spot now! Spots are filling up quick!' :
 									'You are not registered for any courses or incubators. Register to reserve your spot now! Spots are filling up quick!'}</p>
 								<Link to="/courses" className="w-full md:px-6 lg:px-24 block max-w-4xl mx-auto">
@@ -177,9 +198,9 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 										Programs</Button>
 								</Link>
 							</div>
-						</div>
-					);
-				}
+						</div> : null}
+					</>
+				);
 			}
 		} else {
 			// registered for courses
