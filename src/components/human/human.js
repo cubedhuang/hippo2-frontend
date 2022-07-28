@@ -5,9 +5,9 @@ function Human() {
 	const [human, setHuman] = useState({ 'name': 'Name', 'role': 'Role', 'imgUrl': '', 'text': '' });
 	useEffect(() => {
 		const humans = [
-			{ 'name': 'Jackson Choyce', 'role': 'Engineering Manager', 'imgUrl': `${process.env.PUBLIC_URL}/humans/jackson.png`, 'text': 'Jackson is here' },
-			{ 'name': 'Sricharan Guddanti', 'role': 'Product Manager', 'imgUrl': `${process.env.PUBLIC_URL}/humans/sri.jpeg`, 'text': 'Sricharan is here' },
-			{ 'name': 'Bernice Lau', 'role': 'Product Designer', 'imgUrl': `${process.env.PUBLIC_URL}/humans/bernice.jpg`, 'text': 'Bernice is AI Camp\'s Product Design Team Lead, as well as 2021 alumna of our 3 week AI Summer Camp ' },
+			{ 'name': 'Jackson Choyce', 'role': 'Engineering Manager', 'imgUrl': `${process.env.PUBLIC_URL}/humans/jackson.png`, 'text': 'Jackson is the Backend Engineering Manager for hippo2, the system that you\'re using right now. He has been with AI Camp since 2020 and leads multiple teams. He coordinates most of AI Camp\'s infrastructure to keep our programs running smoothly. Jackson led efforts to implement this product at 19 years old.' },
+			{ 'name': 'Sricharan Guddanti', 'role': 'Product Manager', 'imgUrl': `${process.env.PUBLIC_URL}/humans/sri.jpeg`, 'text': 'Sricharan is a Product Manager at AI Camp, and as a 19-year-old, led the development of hippo2, the product you are using right now to sign up and register for courses! A 2021 alumni of our 3-week AI Summer Camp, Sricharan ' },
+			{ 'name': 'Bernice Lau', 'role': 'Product Designer', 'imgUrl': `${process.env.PUBLIC_URL}/humans/bernice.jpg`, 'text': 'Bernice is AI Camp\'s Product Design Team Lead, as well as 2021 alumna of our 3 week AI Summer Camp. She designed hippo2, the system that you\'re using right now, as an 18-year-old. Bernice makes data-driven decisions to design seamless experiences for our customers on a daily basis.' },
 			{ 'name': 'Alexander Zhou', 'role': 'Engineering Manager', 'imgUrl': `${process.env.PUBLIC_URL}/humans/alex.jpg`, 'text': 'Alexander is here' },
 		];
 		setHuman(humans[Math.floor(Math.random() * humans.length)]);
