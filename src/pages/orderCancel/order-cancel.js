@@ -66,7 +66,7 @@ function OrderCancel () {
 	return (
 		<div className="container content-center flex flex-wrap mx-auto mt-12 auth max-w-xl">
 			<div className="md:flex-initial w-full py-5 px-8 bg-white rounded-xl">
-				<h2 className="text-2xl mb-3 text-center font-semibold">Are you sure you want to cancel your course?</h2>
+				<h2 className="header text-2xl mb-3 text-center font-semibold">Are you sure you want to cancel your course?</h2>
 				<div className="mb-2 mt-2">
 					<p className="italic text-center text-red-600">Deadline to cancel: {deadline}</p>
 				</div>
@@ -75,7 +75,7 @@ function OrderCancel () {
 					<p className="mb-3 text-sm font-light pr-4">At AI Camp, our students not only gain a deep understanding of AI under guidance from world-class instructors, but also a supportive, lifelong, rapidly expanding network of peers, mentors, and industry professionals to help further their journey in the technical industry at a low cost compared to other educational programs.</p>
 				</div>
 
-				<h4 className="text-xl mb-3 mt-10 text-center font-semibold">Refund Policy</h4>
+				<h4 className="header text-xl mb-3 mt-10 text-center font-semibold">Refund Policy</h4>
 					
 				<div className="mb-4 mt-5 ml-16 mr-16 text-center" >
 					<p className="mb-3 text-sm font-light pr-4">We hope to see you again. Please note that refunds are only available if you cancel your course before the deadline, and Stripe's processing fees from the transaction will not be refunded. Click <a className="text-blue-700 hover:text-blue-600 underline" target="_blank" rel="noopener noreferrer" href="https://support.stripe.com/questions/understanding-fees-for-refunded-payments">here</a> for more information on Stripe's refund fees.</p>

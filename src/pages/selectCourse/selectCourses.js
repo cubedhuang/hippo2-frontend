@@ -53,7 +53,7 @@ function SelectCourses() {
 		<Page
 			leftChildren={
 				<>
-					<h1 className="text-2xl mb-8 text-center">Course Details</h1>
+					<h1 className="header text-2xl mb-8 text-center">Course Details</h1>
 					<p className="text-base">
 						Select the course that you want to register for. Details about your selected course will appear here!
 					</p>
@@ -61,7 +61,7 @@ function SelectCourses() {
 			} 
 			rightChildren={
 				<>
-					<h2 className="text-2xl mb-8 text-center font-semibold">Select a course to reserve a spot.</h2>
+					<h2 className="header text-2xl mb-8 text-center font-semibold">Select a course to reserve a spot.</h2>
 					<div className="mb-4 mt-5">
 						<h1 className="text-lg mb-3 font-semibold">Course</h1>
 						<p className="mb-3 text-sm font-light pr-4">Our world-class instructors are here to support you.</p>

@@ -107,7 +107,7 @@ function BatchPayment() {
 		<Page
 			leftChildren={
 				<>
-					<h1 className="text-2xl mb-8 text-center">Payment Details</h1>
+					<h1 className="header text-2xl mb-8 text-center">Payment Details</h1>
 					<p className="mb-4">Course tuition is listed under your selected course, alongside other course details. We offer competitive prices for the best AI education.</p>
 					{/* <p className="mb-5">Optional: Enter promo codes under the "Promotional Code" section.</p> */}
 					{/* <p className="mb-5">Pay the full tuition in smaller installments over time by clicking "Pay in Installments".</p> */}
@@ -135,7 +135,7 @@ function BatchPayment() {
 			} 
 			rightChildren={
 				<>
-					<h2 className="text-xl mb-8 text-center">Submit payment to finalize registration.</h2>
+					<h2 className="header text-xl mb-8 text-center">Submit payment to finalize registration.</h2>
 					<div className="mb-8">
 						<p className="text-lg font-semibold">{data.course.name}</p>
 						<p className="text-base">${data.course.price}</p>

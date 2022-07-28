@@ -17,7 +17,11 @@
 /* Universal bg-color and font-family */
 body, html {
 	background-color: #f0f0f0;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Nunito', sans-serif;
+}
+
+.header {
+    font-family: 'Lato', sans-serif;
 }
 
 .main {
