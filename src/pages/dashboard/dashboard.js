@@ -51,7 +51,7 @@ function Dashboard({ isStudentRegistered }) {
 										flashMsg('error', 'You are already registered for a course.');
 									}
 								}}>
-								Register for Courses
+								Register for Programs
 							</Link>
 						</li>
 						<li className='mb-6 hover:text-gray-500'>
