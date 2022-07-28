@@ -20,11 +20,8 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 				baseUrl + `/api/v1/users/${auth.user.id}/orders/`, 
 				{ method: 'GET' }
 			);
-			const scholarshipData = await auth.autoAuthReq(
-				baseUrl + `/api/v1/scholarships/`,
-				{ method: 'GET' }
-			);
-			setScholarships(scholarshipData.data);
+			const scholarshipData = data.data.filter((order) => order.status === 'UNPAID' && order.scholarship.name !== null);
+			setScholarships(scholarshipData);
 
 			// check if user is student and user has paid course
 			for (const course of data.data) {
@@ -126,10 +123,10 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 					registerForCoursesDiv
 				);
 			} else if (scholarships.length > 0) {
-				const scholarship = scholarships[0];
-				if (scholarship.status.startsWith('ACCEPTED_')) {
+				const scholarshipOrder = scholarships[0];
+				if (scholarshipOrder.scholarship.status.startsWith('ACCEPTED_')) {
 					// booked, scholarship accepted
-					const scholarshipText = scholarship.coupon.name;
+					const scholarshipText = scholarshipOrder.scholarship.name;
 
 					return (
 						<>
@@ -144,8 +141,8 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 							<div className="container flex flex-wrap mx-auto mt-12 px-6 pb-6">
 								<div className="flex-none md:flex-initial w-full md:w-7/12 py-8 px-16 pb-10 text-lg text-black bg-white rounded-t-xl md:rounded-l-xl md:rounded-none">
 									<h1 className="font-semibold text-2xl mb-8 text-center">Course Information</h1>
-									<p className="mb-5"><b className="font-semibold">Student Name: </b>{scholarship.user.first_name} {scholarship.user.last_name}</p>
-									<p className="mb-5"><b className="font-semibold">Course: </b>{scholarship.course.name}</p>
+									<p className="mb-5"><b className="font-semibold">Student Name: </b>{scholarshipOrder.user.first_name} {scholarshipOrder.user.last_name}</p>
+									<p className="mb-5"><b className="font-semibold">Course: </b>{scholarshipOrder.course.name}</p>
 									<p className="mb-1"><b className="font-semibold">Scholarship Status: </b><span className="text-green-500">{scholarshipText}</span></p>
 									<p className="text-sm">Your spot is not reserved until payment is received. Register now to save your spot!</p>
 								</div>
@@ -163,8 +160,8 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 						<div className="container flex flex-wrap mx-auto mt-12 px-6 pb-6 mb-8">
 							<div className="flex-none w-full py-8 px-16 pb-10 text-lg text-black bg-white rounded-xl">
 								<h1 className="font-semibold text-2xl mb-8 text-center">Course Information</h1>
-								<p className="mb-5"><b className="font-semibold">Student Name: </b>{scholarship.user.first_name} {scholarship.user.last_name}</p>
-								<p className="mb-5"><b className="font-semibold">Course: </b>{scholarship.course.name}</p>
+								<p className="mb-5"><b className="font-semibold">Student Name: </b>{scholarshipOrder.user.first_name} {scholarshipOrder.user.last_name}</p>
+								<p className="mb-5"><b className="font-semibold">Course: </b>{scholarshipOrder.course.name}</p>
 								<p className="mb-1"><b className="font-semibold">Scholarship Status: </b><span className="text-yellow-400">Application Submitted, In Review</span></p>
 								<p className="text-md">Your spot is not reserved until payment is received. Register now to save your spot!<br />Scholarship decisions will be released by 6/1/2022.</p>
 							</div>
