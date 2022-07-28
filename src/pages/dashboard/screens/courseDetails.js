@@ -98,12 +98,12 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 		if (coursesList.length === 0) {
 			return (
 				<div className="mx-6 mt-12 p-5 text-center bg-white rounded-2xl">
-					<h1 className="font-semibold text-2xl mb-6">Start your {auth.user.type === 'parent' ? 'child\'s AI' : ''} journey with an AI Camp course!</h1>
+					<h1 className="font-semibold text-2xl mb-6">Start your {auth.user.type === 'parent' ? 'child\'s AI' : ''} journey with an AI Camp Program!</h1>
 					<p className="mb-8">{auth.user.type === 'parent' ?
-						'Your child is not registered for any courses. Register for a course to reserve a spot now! Spots are filling up quick!' :
-						'You are not registered for any courses. Register for a course to reserve your spot now! Spots are filling up quick!'}</p>
+						'Your child is not registered for any programs. Register for a program to reserve a spot now! Spots are filling up quick!' :
+						'You are not registered for any programs. Register for a program to reserve your spot now! Spots are filling up quick!'}</p>
 					<Link to="/courses" className="w-full md:px-6 lg:px-24 block max-w-4xl mx-auto">
-						<Button className="w-full mb-5 py-2" bgColor="red" txtColor="white">Register for Courses</Button>
+						<Button className="w-full mb-5 py-2" bgColor="red" txtColor="white">Register for a Program</Button>
 					</Link>
 				</div>
 			);
