@@ -18,7 +18,7 @@ function Dashboard({ isStudentRegistered }) {
 						<li className='mb-6 hover:text-gray-500'>
 							<Link 
 								to='' 
-								className={`px-3 py-1 ${tail === 'dashboard' ? 'text-gray-500 cursor-default pointer-events-none' : ''}`}
+								className={`header px-3 py-1 ${tail === 'dashboard' ? 'text-gray-500 cursor-default pointer-events-none' : ''}`}
 								onClick = {() => setDevs(['Matthew (14)', 'Alex (22)', 'Zac (18)', 'Sean (16)', 'Hyrum (23)'])}
 							>
 								Dashboard Home
@@ -27,7 +27,7 @@ function Dashboard({ isStudentRegistered }) {
 						<li className='mb-6 hover:text-gray-500'>
 							<Link 
 								to='todo' 
-								className={`px-3 py-1 ${tail === 'todo' ? 'text-gray-500 cursor-default pointer-events-none' : ''}`}
+								className={`header px-3 py-1 ${tail === 'todo' ? 'text-gray-500 cursor-default pointer-events-none' : ''}`}
 								onClick = {() => setDevs(['Zac (18)', 'Alex (22)', 'Hyrum (23)'])}
 							>
 								To Do List
@@ -36,7 +36,7 @@ function Dashboard({ isStudentRegistered }) {
 						<li className='mb-6 hover:text-gray-500'>
 							<Link 
 								to='account' 
-								className={`px-3 py-1 ${tail === 'account' ? 'text-gray-500 cursor-default pointer-events-none' : ''}`}
+								className={`header px-3 py-1 ${tail === 'account' ? 'text-gray-500 cursor-default pointer-events-none' : ''}`}
 								onClick = {() => setDevs(['Nathan Xaysena (19)', 'Leo Due (17)'])}
 							>
 								Account Settings
@@ -45,7 +45,7 @@ function Dashboard({ isStudentRegistered }) {
 						<li className={`mb-6 ${!isStudentRegistered ? 'hover:text-gray-500' : ''}`}>
 							<Link 
 								to='/courses'
-								className={`px-3 py-1 ${isStudentRegistered ? 'cursor-default' : ''}`} onClick={(event) => {
+								className={`header px-3 py-1 ${isStudentRegistered ? 'cursor-default' : ''}`} onClick={(event) => {
 									if (isStudentRegistered) {
 										event.preventDefault();
 										flashMsg('error', 'You are already registered for a course.');
@@ -54,12 +54,12 @@ function Dashboard({ isStudentRegistered }) {
 								Register for Programs
 							</Link>
 						</li>
-						<li className='mb-6 hover:text-gray-500'>
+						<li className='header mb-6 hover:text-gray-500'>
 							<a href='https://www.ai-camp.org/student-products' target='_blank' rel='noopener noreferrer' className="px-3 py-1">
 								Explore Student Products
 							</a>
 						</li>
-						<li className='mb-6 hover:text-gray-500'>
+						<li className='header mb-6 hover:text-gray-500'>
 							<a href='https://www.ai-camp.org/summer-help-center' target='_blank' rel='noopener noreferrer' className="px-3 py-1">
 								Help Center
 							</a>

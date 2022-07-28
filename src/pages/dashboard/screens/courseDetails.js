@@ -65,7 +65,7 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 			coursesList.push((
 				<div key={course.id} className="container flex flex-wrap mx-auto mt-12 px-6 pb-6">
 					<div className="flex-none md:flex-initial w-full md:w-7/12 py-8 px-16 pb-10 text-lg text-black bg-white rounded-t-xl md:rounded-tl-xl md:rounded-none">
-						<h1 className="font-semibold text-2xl mb-8 text-center">Course Information</h1>
+						<h1 className="header font-semibold text-2xl mb-8 text-center">Course Information</h1>
 						<p className="mb-5"><b className="font-semibold">Student Name: </b>{course.user.first_name} {course.user.last_name}</p>
 						<p><b className="font-semibold">Course: </b>{course.course.name}</p>
 						<p><b className="font-semibold">{course.batch.name}: </b>{course.batch.start_date} - {course.batch.end_date}, {course.batch.start_time} - {course.batch.end_time} {course.batch.time_zone}</p>
@@ -75,7 +75,7 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 						</Link>
 					</div>
 					<div className="flex-none md:flex-initial w-full md:w-5/12 py-8 px-16 pb-10 materials-gray md:rounded-tr-xl md:rounded-none">
-						<h1 className="font-semibold text-2xl mb-10 text-center">Course Materials</h1>
+						<h1 className="header font-semibold text-2xl mb-10 text-center">Course Materials</h1>
 						{courseTasks[course.id] ? 
 							<Link to = 'todo'>
 								<Button bgColor="white" txtColor="black" className="w-full py-3 mb-4">Student To Do List</Button>

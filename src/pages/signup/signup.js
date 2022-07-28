@@ -69,7 +69,7 @@ function Signup() {
 		<Page
 			leftChildren={
 				<>
-					<h1 className="text-2xl mb-8 text-center">Create an Account</h1>
+					<h1 className="header text-2xl mb-8 text-center">Create an Account</h1>
 					<p className="text-base mb-4">
 						AI Camp teaches future leaders about coding, AI, how to learn, and how to work through creating impressive AI products and tech internships.
 					</p>
@@ -92,7 +92,7 @@ function Signup() {
 					event.preventDefault();
 				}}>
 					<Human></Human>
-					<h2 className="text-xl mb-6 mt-7 text-center">Join AI Camp as a</h2>
+					<h2 className="header text-xl mb-6 mt-7 text-center">Join AI Camp as a</h2>
 		
 					<div className="flex items-center justify-center">
 						<div className="mx-auto inline-block">
