@@ -33,17 +33,20 @@ function ToDo() {
 	if (orders !== null) {
 		orderList = [];
 		for (let order of orders) {
+			if (!order.order) {
+				continue;
+			}
 			// For each order, create Task Container for each order with both Tasks and Completed Tasks
 			orderList.push((
-				<div className="container flex flex-wrap mx-auto mt-10 px-5 mb-10">
+				<div key={order.order.id} className="container flex flex-wrap mx-auto mt-10 px-5 mb-10">
 				   <div className="flex-none md:flex-initial w-full md:w-full py-5 px-8 bg-white text-black rounded-t-xl md:rounded-t-xl md:rounded-none">
 					   <h1 className="text-2xl mb-8 text-center">{order.user.first_name} {order.user.last_name}'s To Do List</h1>
 					   <form>
 						   {isLoaded ? <Loading /> : null}
-						   <GetTasks orderId={order.id} comTasks={order.completed_tasks} />
+						   <GetTasks orderId={order.order.id} comTasks={order.completed_tasks} />
 					   </form>
 					</div>
-					<GetCompletedTasks orderId={order.id} comTasks={order.completed_tasks} />
+					<GetCompletedTasks orderId={order.order.id} comTasks={order.completed_tasks} />
 				</div>
 			));
 		}
