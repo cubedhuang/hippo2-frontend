@@ -48,6 +48,7 @@ function OrderCancel () {
 		autoAuthReq(url, options, location.pathname).then(res => {
 			flashMsg('success', 'Order successfully refunded');
 			navigate('/'); // navigate to dashboard once successful
+			window.location.reload();
 		}).catch(err => {
 			setProcessing(false);
 			// handle errors
