@@ -48,29 +48,29 @@ function BatchChange() {
 		if (!batch.id) {
 			return (
 				<>
-					<h1 className="text-3xl mb-10 text-center">
+					<h1 className="header text-3xl mb-10 text-center">
                         Batch Change
 					</h1>
 					<p className="text-lg mx-9 mb-3">
 						<b>Current Batch:</b><br />Batch {batchData.name} ({currentBatch.time_zone}): {currentBatch.start_date} - {currentBatch.end_date} in {batchData.name}
 					</p>
-					<h1 className="text-3xl mb-5 mt-9 text-center">
+					<h1 className="header text-3xl mb-5 mt-9 text-center">
                         New Batch Details
 					</h1>
-					<p className="text-lg mx-9 mb-3">
+					<p className="header text-lg mx-9 mb-3">
                         Select another batch in the calendar to find a batch that best fits your schedule. Batch details will be updated here depending on which batch you choose.
 					</p>
 				</>);
 		} else {
 			return (
 				<>
-					<h1 className="text-3xl mb-10 text-center">
+					<h1 className="header text-3xl mb-10 text-center">
                         Batch Change
 					</h1>
 					<p className="text-lg mx-9 mb-3">
 						<b>Current Batch:</b><br />Batch {currentBatch.name} ({currentBatch.time_zone}): {currentBatch.start_date} - {currentBatch.end_date} in {batchData.name}
 					</p>
-					<h1 className="text-3xl mb-5 mt-9 text-center">
+					<h1 className="header text-3xl mb-5 mt-9 text-center">
                         New Batch Details
 					</h1>
 					<p className="text-lg ml-8">
@@ -155,7 +155,7 @@ function BatchChange() {
 			} 
 			rightChildren={
 				<>
-					<h4 className="text-xl text-center mb-5">Select a batch that fits your schedule.</h4>
+					<h4 className="header text-xl text-center mb-5">Select a batch that fits your schedule.</h4>
 					<BatchBoard
 						className="w-full"
 						batchData={batchData.batches} 

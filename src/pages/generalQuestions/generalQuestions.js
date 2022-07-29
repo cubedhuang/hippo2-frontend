@@ -2,9 +2,19 @@ import { useState } from 'react';
 import QuestionInput from '../../components/questionInputs/questionInput';
 import ScholarshipBanner from '../../components/ScholarshipBanner/ScholarshipBanner';
 import Button from '../../components/button/button';
+import { useNavigate } from "react-router-dom";
 
 function GeneralQuestions() {
 	const [option, setOption] = useState('');
+	const navigate = useNavigate();
+
+	const onBack = () => {
+		navigate('/scholarship/courses');
+	};
+
+	const onNext = () => {
+		navigate('/scholarship/courses/<courseId>/application');
+	};
 
 	return (
 		<>
@@ -42,6 +52,7 @@ function GeneralQuestions() {
 							bgColor="gray"
 							txtColor="white" 
 							className="w-1/3 py-1 mr-6" 
+							onClick={() => onBack()}
 						>
 							Back
 						</Button>
@@ -49,6 +60,7 @@ function GeneralQuestions() {
 							bgColor="green" 
 							txtColor="white" 
 							className="w-2/3 py-3" 
+							onClick={() => onNext()}
 						>
 							Next
 						</Button>

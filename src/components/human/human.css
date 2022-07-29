@@ -4,3 +4,36 @@
 	height: 64px;
 }
 
+.human-textbox-container {
+	display: none;
+	background: #252525;
+    position: absolute;
+    width: 230px;
+    height: 137px;
+	margin-left: 330px;
+	margin-top: -40px;
+	border-radius: 20px;
+    align-self: center;
+  }
+	  
+.human-img-container:hover + .human-textbox-container {
+	display: block;
+  }
+.human-textbox {
+	margin: 10px;
+	font-size: 10px;
+	font-style: normal;
+    font-weight: 300;
+	color: #FFFFFF;
+}
+.human-textbox-container::after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -10px;
+	top: 60px;
+	border-top: 10px solid transparent;
+  	border-bottom: 10px solid transparent; 
+  	border-right:10px solid #252525; 
+}

@@ -54,7 +54,7 @@ function Login() {
 		<Page
 			leftChildren={
 				<>
-					<h1 className="text-2xl mb-8 text-center">Log In</h1>
+					<h1 className="header text-2xl mb-8 text-center">Log In</h1>
 
 					<p className="text-base mb-4">Welcome back to AI Camp!</p>
 
@@ -67,7 +67,7 @@ function Login() {
 				<form action="/" method="GET" onSubmit={event => {
 					event.preventDefault();
 				}}>
-					<h2 className="text-2xl mb-8 text-center">Welcome back to AI Camp!</h2>
+					<h2 className="header text-2xl mb-8 text-center">Welcome back to AI Camp!</h2>
 		
 					{
 						formErrors.nonFieldErrors?.length ? 

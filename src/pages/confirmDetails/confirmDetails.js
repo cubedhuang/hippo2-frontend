@@ -72,7 +72,7 @@ function ConfirmDetails() {
 		<Page
 			leftChildren={
 				<>
-					<h1 className="text-2xl mb-8 text-center">Confirm Your Details</h1>
+					<h1 className="header text-2xl mb-8 text-center">Confirm Your Details</h1>
 					<p className="text-base mb-4">
 						Fill out your personal details to start the course registration process! 
 					</p>
@@ -88,7 +88,7 @@ function ConfirmDetails() {
 				<form action="/" method="GET" onSubmit={event => {
 					event.preventDefault();
 				}}>
-					<h2 className="text-xl mb-8 text-center grow-0">Gain real experience by building real AI products. We are here to support you.</h2>
+					<h2 className="header text-xl mb-8 text-center grow-0">Gain real experience by building real AI products. We are here to support you.</h2>
 					<div className="mb-8 mt-5 grow">
 						<Input label="First Name"
 							type="text"

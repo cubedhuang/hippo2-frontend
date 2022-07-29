@@ -32,6 +32,7 @@ import ProtectedRoute from './components/protectedRoute/protectedRoute';
 import PageNotFound from './pages/pageNotFound/pageNotFound';
 import ApplicationQuestions from './pages/applicationQuestions/applicationQuestions';
 import GeneralQuestions from './pages/generalQuestions/generalQuestions';
+import ScholarshipSelectCourse from './pages/scholarshipSelectCourse/scholarshipSelectCourse';
 import TaxDetails from './pages/taxDetails/tax-details';
 import './App.css';
 
@@ -108,17 +109,26 @@ function App() {
 									<SelectionPage />
 								</ProtectedRoute>
 							}/>
-							<Route path='/scholarships/application-questions' element={
+							<Route path='/scholarship/courses' element={
 								<ProtectedRoute>
-									<ApplicationQuestions />
+									<ScholarshipSelectCourse />
 								</ProtectedRoute>
 							}/>
-							<Route path='/scholarships/general-questions' element={
+							<Route path='/scholarship/courses/:courseId/general' element={
 								<ProtectedRoute>
 									<GeneralQuestions />
 								</ProtectedRoute>
 							}/>
-							<Route path = '/tax-details' element={<TaxDetails />}></Route>
+							<Route path='/scholarship/courses/:courseId/application' element={
+								<ProtectedRoute>
+									<ApplicationQuestions />
+								</ProtectedRoute>
+							}/>
+							<Route path='/scholarship/courses/:courseId/tax-details' element={
+								<ProtectedRoute>
+									<TaxDetails />
+								</ProtectedRoute>
+							}/>
 							<Route path='*' element={<PageNotFound />} />
 						</Routes>
 					</div>
