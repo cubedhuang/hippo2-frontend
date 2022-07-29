@@ -1,32 +1,34 @@
 import Page from "../../components/page/page";
 import Button from "../../components/button/button";
+import { useNavigate } from "react-router-dom";
 
 function TaxDetails () {
+	const navigate = useNavigate();
+
+	const onBack = () => {
+		navigate('/scholarship/courses/<courseId>/application');
+	};
 
 	const fileUpload = () => {
 		//Dummy for now
 	};
 
-	const onBack = () => {
-		//Dummy for now
-	};
-
 	const onSubmit = () => {
-		//Dummy for now
+		navigate('/dashboard');
 	};
 
 	return (
 		<Page 
 			leftChildren = {
 				<div>
-					<h1 className='text-2xl text-center mb-8'>Submit Tax Details</h1>
+					<h1 className='header text-2xl text-center mb-8'>Submit Tax Details</h1>
 					<p className="mb-4"><b>(Optional)</b> For low-income families who would like to be considered for financial assistance, please upload a copy of your most recent W-2 form in PDF format.</p>
 					<p><em>To determine if your family qualifies as low-income, <a href = "www.ai-camp.org" className="underline text-blue-700">click here for more information</a>.</em></p>
 				</div> 
 			} 
 			rightChildren = {
 				<div>
-					<h1 className='text-xl text-center mb-12'>Upload Materials</h1>
+					<h1 className='header text-xl text-center mb-12'>Upload Materials</h1>
                 
 					<div className='flex items-center justify-center'>
 						<Button bgColor='gray' className="p-2 w-60 text-white mb-20" onClick={() => fileUpload()}>Upload W-2 Form</Button>

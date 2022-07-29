@@ -6,6 +6,7 @@ import baseUrl from "../../../apiUrls";
 import Button from "../../../components/button/button";
 import Loading from "../../loading/loading";
 import HideViewBar from "../../../components/HideViewBar/HideViewBar";
+import './courseDetails.css';
 
 function DashboardCourseDetails({ setIsStudentRegistered }) {
 	const [courses, setCourses] = useState(null);
