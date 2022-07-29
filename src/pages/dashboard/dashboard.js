@@ -37,7 +37,7 @@ function Dashboard({ isStudentRegistered }) {
 							<Link 
 								to='account' 
 								className={`header px-3 py-1 ${tail === 'account' ? 'text-gray-500 cursor-default pointer-events-none' : ''}`}
-								onClick = {() => setDevs(['Nathan Xaysena (19)', 'Leo Due (17)'])}
+								onClick = {() => setDevs(['Nathan Xaysena (19)', 'Leo Du (17)'])}
 							>
 								Account Settings
 							</Link>
