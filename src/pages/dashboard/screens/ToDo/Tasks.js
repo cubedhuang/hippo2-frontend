@@ -46,25 +46,27 @@ function GetTasks(prop) {
 	}, [autoAuthReq, flashMsg, orderId]);
 	
 	// create toDo Tasks containers 
-	const toDoTasks = tasksList.map((task) =>{
+	const toDoTasks = tasksList.map((task) => {
 		if (!comTasks.includes(task.id)) {
 			return (
-				<label className="containertask" key={task.id} >{task.text}
-					<input type="checkbox" value = {String(task.id) + ',' + String(orderId)} onClick={onClick}></input>
-					<span className="checkmark"></span>
-					<p className='text-sm text-red-500 italic'>Deadline: {task.deadline}</p>
+				<label className="containertask" key={task.id}>{task.text}
+					<input type="checkbox" value={String(task.id) + ',' + String(orderId)} onClick={onClick} />
+					<span className="checkmark" />
+					<p className="text-sm text-red-500 italic">Deadline: {task.deadline}</p>
 				</label>
 			);
 		}
 		return null;
 	});
 
-	return (
-		<>
-			{toDoTasks}
-		</>
-	);
+	let list;
+	if (toDoTasks.filter(x => x !== null).length > 0) {
+		list = toDoTasks;
+	} else {
+		list = <p className="text-center w-full text-lg">All tasks are completed!</p>;
+	}
 
+	return list;
 }
 
 export default GetTasks;
