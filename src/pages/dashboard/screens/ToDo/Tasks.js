@@ -63,7 +63,7 @@ function GetTasks(prop) {
 	if (toDoTasks.filter(x => x !== null).length > 0) {
 		list = toDoTasks;
 	} else {
-		list = <p className="text-center w-full text-lg">All tasks are completed!/No tasks assigned</p>;
+		list = <p className="text-center w-full text-lg">All tasks are completed! / No tasks assigned</p>;
 	}
 
 	return list;

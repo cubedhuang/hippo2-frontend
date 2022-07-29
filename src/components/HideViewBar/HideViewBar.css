@@ -66,8 +66,8 @@
 
 .arrow {
 	box-sizing: border-box;
-	height: 1vw;
-	width: 1vw;
+	height: 1rem;
+	width: 1rem;
 	border-style: solid;
 	border-color: black;
 	border-width: 0rem 0.063rem 0.063rem 0rem;

@@ -30,7 +30,7 @@ function Dashboard({ isStudentRegistered }) {
 								className={`header px-3 py-1 ${tail === 'todo' ? 'text-gray-500 cursor-default pointer-events-none' : ''}`}
 								onClick = {() => setDevs(['Zac (18)', 'Alex (22)', 'Hyrum (23)'])}
 							>
-								To Do List
+								To-Do List
 							</Link>
 						</li>
 						<li className='mb-6 hover:text-gray-500'>
@@ -66,7 +66,7 @@ function Dashboard({ isStudentRegistered }) {
 						</li>
 					</ul>
 				</nav>
-				<TTLogo className='sticky bottom-10 p-6 pl-9 text-white' developers={devs} />
+				<TTLogo className='sticky bottom-10 p-6 pl-9 lg-hidden text-white' developers={devs} />
 			</div>
 
 			<div className='w-full flex flex-col flex-1'>

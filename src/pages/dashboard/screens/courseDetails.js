@@ -39,7 +39,6 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 				if (scholarshipData.filter(order => order.order.id === course.order.id).length > 0) continue; // remove duplicates
 				courseTaskDict[course.order.id] = (await auth.autoAuthReq(baseUrl + `/api/v1/orders/${course.order.id}/tasks/?countonly=true`, { method: 'GET' })).data.count > 0;
 			}
-
 			setCourseTasks(courseTaskDict);
 			setCourses(data.data);
 		})().catch(err => {
@@ -85,12 +84,13 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 						</Link>
 					</div>
 					<div className={`flex-none md:flex-initial w-full md:w-5/12 py-8 px-16 pb-10 bg-stone-300 ${isFullScholarship ? 'rounded-b-xl md:rounded-tr-xl md:rounded-bl-none' : 'md:rounded-tr-xl md:rounded-none'}`}>
-						<h1 className="font-semibold text-2xl mb-10 text-center">Course Materials</h1>
+						<h1 className="font-semibold text-2xl text-center">Course Materials</h1>
 						{courseTasks[course.order.id] ?
 							<Link to = 'todo'>
-								<Button bgColor="white" txtColor="black" className="w-full py-3 mb-4">Student To Do List</Button>
+								<Button bgColor="white" txtColor="black" className="w-full py-3 mb-4 mt-10">Student To Do List</Button>
 							</Link> :
 							<>
+								<span className="text-center italic text-red-400 block mt-3 mb-7">To Be Updated</span>
 								<Button bgColor="white" txtColor="black" className="w-full py-2 mb-4">Zoom Link</Button>
 								<Button bgColor="white" txtColor="black" className="w-full py-2 mb-4">Discord Server</Button>
 								<Button bgColor="white" txtColor="black" className="w-full py-2 mb-4">Class Schedule</Button>
