@@ -42,7 +42,7 @@ function BatchSelect() {
 		const id = batch.id;
 		const [err] = validateUuid(id);
 		if (err) {
-			flashMsg('error', 'Invalid batch');
+			flashMsg('error', 'Please select an available batch');
 		} else if (user.type === "PARENT") {
 			const path = `/batches/${id}/student-selection`;
 			navigate(path); 
@@ -56,7 +56,7 @@ function BatchSelect() {
 		if (batch.id) {
 			return (
 				<>
-					<div className="text-center text-3xl mb-10">
+					<div className="header text-center text-3xl mb-10">
 						<h1>Batch {batch.name}</h1>
 						<h4>{batch.start_date} - {batch.end_date}</h4>
 						<h4>({batch.time_zone})</h4>
@@ -80,7 +80,7 @@ function BatchSelect() {
 		} else {
 			return (
 				<>
-					<h1 className="text-center text-3xl mb-8">Batch<br/>Details </h1>
+					<h1 className="header text-center text-3xl mb-8">Batch<br/>Details </h1>
 					<p className="text-base mb-4">
 						Select the batch that you want to register for. Details about your selected batch will appear here!
 					</p>
@@ -99,7 +99,7 @@ function BatchSelect() {
 			} 
 			rightChildren={
 				<>
-					<h1 className="text-center text-xl font-bold">{data.name}</h1>
+					<h1 className="header text-center text-xl font-bold">{data.name}</h1>
 					<p className="text-center text-xl mb-8">Select a batch that fits your schedule</p>
 					<BatchBoard 
 						className="w-full"

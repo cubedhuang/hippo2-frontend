@@ -53,7 +53,7 @@ function ForgotPassword() {
 		<Page
 			leftChildren={
 				<>
-					<h1 className="text-2xl mb-8 text-center">Password Reset</h1>
+					<h1 className="header text-2xl mb-8 text-center">Password Reset</h1>
 					<p className="text-base mb-6">Enter your email to get a password reset link.</p>
 						
 					<p className="text-base">By logging into AI Camp, you agree to our&nbsp;
@@ -64,7 +64,7 @@ function ForgotPassword() {
 			} 
 			rightChildren={
 				<>
-					<h2 className="text-2xl mb-8 text-center font-semibold">Reset your password to continue your AI adventure with AI Camp.</h2>
+					<h2 className="header text-2xl mb-8 text-center font-semibold">Reset your password to continue your AI adventure with AI Camp.</h2>
 					<form action="" method="post" onSubmit={e => e.preventDefault()}>
 						<Input label="Email"
 							placeHolder="example@gmail.com"

@@ -52,7 +52,7 @@ function SelectionPage() {
 	function SideBar() { 
 		return (
 			<>
-				<h1 className="text-3xl mb-10 text-center">
+				<h1 className="header text-3xl mb-10 text-center">
 					Select a Student
 				</h1>
 				<h1 className="text-1xl mx-4 my-3">You have chosen Batch {batchData.name} ({batchData.start_date} - {batchData.end_date}) {batchData.time_zone} in {batchData.course.name}.</h1>
@@ -94,7 +94,7 @@ function SelectionPage() {
 				<>
 					<div>
 						<div className="my-2 text-center w-full">
-							<h2 className="text-2xl mt-3">Reserve spot in {batchData.course.name} for</h2>
+							<h2 className="header text-2xl mt-3">Reserve spot in {batchData.course.name} for</h2>
 						</div>
 						<div className="my-10">
 							{selection}

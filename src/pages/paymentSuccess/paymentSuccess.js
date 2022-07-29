@@ -44,15 +44,16 @@ function PaymentSuccess() {
 		<Page
 			leftChildren={
 				<>
-					<h1 className="text-2xl mb-8 text-center">Congratulations!</h1>
+					<h1 className="header text-2xl mb-8 text-center">Congratulations!</h1>
 					<p className="text-base mb-4">You are now officially enrolled in {data.course} in Batch {data.batch}.</p>
 					<p className="text-base mb-4">Order ID: {data.id}</p>
+					<p className="text-base mb-4">Amount Paid: ${(data.amount / 100).toFixed(2)}</p>
 					<p className="text-lg">Click "Proceed to Student Dashboard" to view your payment status and prepare for your upcoming AI Camp course!</p>
 				</>
 			} 
 			rightChildren={
 				<>
-					<h2 className="text-xl mb-16 text-center">Thank you for registering at AI Camp!</h2>
+					<h2 className="header text-xl mb-16 text-center">Thank you for registering at AI Camp!</h2>
 
 					<Button 
 						bgColor="green" txtColor="white" className="col-span-3 my-2 mb-8 py-3 w-full"
@@ -64,7 +65,7 @@ function PaymentSuccess() {
 			} 
 			leftRightRatio={'1:1'}
 			maxWidth={'5xl'} 
-			developers={['Nathen Xayena (19)', 'Leo Du(17)', 'Zac (18)', 'Matthew (14)']}
+			developers={['Nathan Xaysena (19)', 'Leo Du (17)', 'Zac (18)', 'Matthew (14)']}
 		>
 		</Page>
 	);

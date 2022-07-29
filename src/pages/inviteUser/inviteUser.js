@@ -75,7 +75,7 @@ function InviteUser() {
 	if (type === 'PARENT') {
 		panelText = (
 			<>
-				<h1 className="text-2xl mb-8 text-center">Parent Or Guardian Details</h1>
+				<h1 className="header text-2xl mb-8 text-center">Parent Or Guardian Details</h1>
 				<p className="text-base mb-4">
 					Fill out your parent or guardian's personal details to create their account profile and invite them to log in so they access information, as well as other AI Camp course resources!
 				</p>
@@ -85,7 +85,7 @@ function InviteUser() {
 	} else {
 		panelText = (
 			<>
-				<h1 className="text-2xl mb-8 text-center">Student Details</h1>
+				<h1 className="header text-2xl mb-8 text-center">Student Details</h1>
 				<p className="text-base mb-4">
 					Fill out your student's email to invite them to create an account, which will allow them to access resources in preparation for their course(s).
 				</p>
@@ -106,7 +106,7 @@ function InviteUser() {
 				<form action="/" method="GET" onSubmit={event => {
 					event.preventDefault();
 				}}>
-					<h2 className="text-xl text-center">
+					<h2 className="header text-xl text-center">
 						{formTitle}
 					</h2>
 					<div className="mb-8 mt-6">
