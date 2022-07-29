@@ -34,6 +34,7 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 			// fetch incomplete tasks from API
 			const courseTaskDict = {};
 			for (let course of data.data) {
+				if (course.order === undefined) continue; // remove courses with no paid orders eg. full scholarship
 				if (scholarshipData.filter(order => order.order.id === course.order.id).length > 0) continue; // remove duplicates
 				courseTaskDict[course.order.id] = (await auth.autoAuthReq(baseUrl + `/api/v1/orders/${course.order.id}/tasks/?countonly=true`, { method: 'GET' })).data.count > 0;
 			}
@@ -64,10 +65,10 @@ function DashboardCourseDetails({ setIsStudentRegistered }) {
 				</div>
 			));
 
-			const scholarship = course.scholarship.name !== null && course.scholarship.status.startsWith('ACCEPTED_') ? (
+			const scholarship = course.scholarship !== undefined ? (
 				<p className="mb-5"><b className="font-semibold">Scholarship Status: </b><span className="text-green-500">{course.scholarship.name}</span></p>
 			) : null;
-			const isFullScholarship = course.scholarship.status === 'ACCEPTED_FULL';
+			const isFullScholarship = course.scholarship?.status === 'ACCEPTED_FULL';
 
 			coursesList.push((
 				<div key={course.order.id} className="container flex flex-wrap mx-auto mt-12 px-6 pb-6">
