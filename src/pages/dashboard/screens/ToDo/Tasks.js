@@ -49,10 +49,10 @@ function GetTasks(prop) {
 	const toDoTasks = tasksList.map((task) => {
 		if (!comTasks.includes(task.id)) {
 			return (
-				<label className="containertask" key={task.id} >{task.text}
-					<input type="checkbox" value = {String(task.id) + ',' + String(orderId)} onClick={onClick} />
+				<label className="containertask" key={task.id}>{task.text}
+					<input type="checkbox" value={String(task.id) + ',' + String(orderId)} onClick={onClick} />
 					<span className="checkmark" />
-					<p className='text-sm text-red-500 italic'>Deadline: {task.deadline}</p>
+					<p className="text-sm text-red-500 italic">Deadline: {task.deadline}</p>
 				</label>
 			);
 		}
@@ -60,7 +60,7 @@ function GetTasks(prop) {
 	});
 
 	let list;
-	if (toDoTasks.length > 0) {
+	if (toDoTasks.filter(x => x !== null).length > 0) {
 		list = toDoTasks;
 	} else {
 		list = <p className="text-center w-full text-lg">All tasks are completed!</p>;
