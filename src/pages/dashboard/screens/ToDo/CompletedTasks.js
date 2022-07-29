@@ -27,10 +27,10 @@ function GetCompletedTasks(prop) {
 	
 	// create Completed toDo tasks container
 	const ToDoCompletedTasks = tasksList.map((task) =>{
-		if (comTasks.includes(task.id)) {
+		if (comTasks && comTasks.includes(task.id)) {
 			return (
 				<label className="containertask" key={task.id}>{task.text}
-					<input type="checkbox" value = {task.id} checked={true}></input>
+					<input type="checkbox" value = {task.id} checked={true} readOnly></input>
 					<span className="checkmark"></span>
 				</label>
 			);

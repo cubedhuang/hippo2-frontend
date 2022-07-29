@@ -47,7 +47,7 @@ function GetTasks(prop) {
 	
 	// create toDo Tasks containers 
 	const toDoTasks = tasksList.map((task) => {
-		if (!comTasks.includes(task.id)) {
+		if (comTasks && !comTasks.includes(task.id)) {
 			return (
 				<label className="containertask" key={task.id}>{task.text}
 					<input type="checkbox" value={String(task.id) + ',' + String(orderId)} onClick={onClick} />
@@ -63,7 +63,7 @@ function GetTasks(prop) {
 	if (toDoTasks.filter(x => x !== null).length > 0) {
 		list = toDoTasks;
 	} else {
-		list = <p className="text-center w-full text-lg">All tasks are completed!</p>;
+		list = <p className="text-center w-full text-lg">All tasks are completed!/No tasks assigned</p>;
 	}
 
 	return list;
