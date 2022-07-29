@@ -82,8 +82,14 @@
 	height: auto;
 }
 
-@media only screen and (max-width: 768px) {
-    .ttlogo-main-container{
+@media (max-width: 768px) {
+    .ttlogo-main-container {
         display: none;
     }
+}
+
+@media (max-width: 1024px) {
+	.ttlogo-main-container.lg-hidden {
+		display: none;
+	}
 }
