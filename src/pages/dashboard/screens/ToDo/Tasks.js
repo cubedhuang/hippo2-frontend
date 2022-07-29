@@ -60,7 +60,7 @@ function GetTasks(prop) {
 	});
 
 	let list;
-	if (tasksList.length > 0) {
+	if (toDoTasks.length > 0) {
 		list = toDoTasks;
 	} else {
 		list = <p className="text-center w-full text-lg">All tasks are completed!</p>;
