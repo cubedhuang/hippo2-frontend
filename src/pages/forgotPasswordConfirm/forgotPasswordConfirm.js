@@ -45,8 +45,12 @@ function ForgotPasswordConfirm() {
 				flashMsg('success', 'Password Reset Successfully!');
 				navigate('/login');
 			}).catch(err => {
-				if (err.data?.message) {
-					return flashMsg('error', err.data.message);
+				if (err.data?.new_password2?.[0]) {
+					return flashMsg('error', err.data.new_password2[0]);
+				} else if (err.status) {
+					return flashMsg(
+						'error', 'Failed to reset! Check that your password is not too weak and common'
+					);
 				}
 				flashMsg('error', 'Failed to connect to server');
 			});	
