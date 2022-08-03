@@ -68,6 +68,7 @@ function App() {
 								<Route path='*' element={<PageNotFound />} />
 							</Route>
 							<Route path='/backoffice' element={<BackOfficeDashboard/>}>
+								<Route index element={<Navigate to='customers' replace />}/>
 								<Route path='customers' element={<UnderConstruction />}/>
 								<Route path='courses' element={<UnderConstruction />}/>
 								<Route path='scholarships' element={<UnderConstruction />}/>
