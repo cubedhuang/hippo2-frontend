@@ -73,6 +73,7 @@ function App() {
 								<Route path='customers' element={<UnderConstruction />}/>
 								<Route path='courses' element={<UnderConstruction />}/>
 								<Route path='scholarships' element={<UnderConstruction />}/>
+								<Route path='scholarshipreview' element={<ScholarshipReview />}/>
 								<Route path='*' element={<PageNotFound />} />
 							</Route>
 							<Route path='/auth/google/' element={<GoogleAuth />}/>
@@ -139,7 +140,6 @@ function App() {
 									<TaxDetails />
 								</ProtectedRoute>
 							}/>
-							<Route path='/backoffice/scholarshipreview' element={<ScholarshipReview />}/>
 							<Route path='*' element={<PageNotFound />} />
 						</Routes>
 					</div>

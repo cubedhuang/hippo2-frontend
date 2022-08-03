@@ -1,15 +1,18 @@
 import Button from "../../components/button/button";
 import { useState, useEffect } from "react";
 import { useFlashMsg } from "../../services/flashMsg";
-import sendReq from "../../services/sendReq";
+import { useAuth } from "../../../services/authentication";
 import baseUrl from "../../apiUrls";
 
 function ScholarshipReview() {
+	const { autoAuthReq } = useAuth();
 	const [scholarshipIndex, setScholarshipIndex] = useState(0);
 	const [scholarshipList, setScholarshipList] = useState([]);
 	const [courseList, setCourseList] = useState([]);
 	const [courseID, setCourseID] = useState('');
 	const { flashMsg } = useFlashMsg();
+	const [disabled, setDisabled] = useState(false);
+	const here = useLocation().pathname;
 	const index = 0;
 
 	const listCourses = courseList.map((course) =>
@@ -21,7 +24,7 @@ function ScholarshipReview() {
 		const options = {
 			method: 'GET'
 		};
-		sendReq(url, options).then(res => {
+		autoAuthReq(url, options, here).then(res => {
 			setCourseList(res.data);
 		}).catch(err => {
 			flashMsg('error', 'Failed to get course list');
@@ -37,7 +40,7 @@ function ScholarshipReview() {
 				course_id: courseID.target.value
 			}
 		};
-		sendReq(url, options).then(res => {
+		autoAuthReq(url, options, here).then(res => {
 			setScholarshipList(res.data);
 		}).catch(err => {
 			flashMsg('error', 'Failed to get scholarship list');
@@ -45,11 +48,11 @@ function ScholarshipReview() {
 	};
 
 	const onNext = () => {
-		setScholarshipIndex(scholarshipIndex + 1);
+		setScholarshipIndex(i => i + 1);
 	};
 	
 	const onBack = () => {
-		setScholarshipIndex(scholarshipIndex - 1);
+		setScholarshipIndex(i => i - 1);
 	};
 
 	const onReject = () => {
@@ -65,31 +68,30 @@ function ScholarshipReview() {
 	};
 
 	function onSubmit(decision) {
-		const urlPost = baseUrl + `/__api/v1/scholarships/`;
-		const optionsPost = {
-			method: 'POST',
-			body: {
-				scholarship_id: scholarshipList[scholarshipIndex].id,
-				scholarship_status: decision
-			}
-		};
-		sendReq(urlPost, optionsPost).then(res => {
+		setDisabled(true);
+		(async () => {
+			const urlPost = baseUrl + `/__api/v1/scholarships/`;
+			const optionsPost = {
+				method: 'POST',
+				body: {
+					scholarship_id: scholarshipList[scholarshipIndex].id,
+					scholarship_status: decision
+				}
+			};
+			await autoAuthReq(urlPost, optionsPost, here);
+			const urlGet = baseUrl + `/__api/v1/scholarships/`;
+			const optionsGet = {
+				method: 'GET',
+				body: {
+					course_id: courseID
+				}
+			};
+			const res = await authAuthReq(urlGet, optionsGet, here)
 			setScholarshipList(res.data);
-		}).catch(err => {
-			flashMsg('error', 'Failed to get update scholarship status');
+		})().catch(err => {
+			flashMsg('error', 'Failed to submit decision');
 		});
-		const urlGet = baseUrl + `/__api/v1/scholarships/`;
-		const optionsGet = {
-			method: 'GET',
-			body: {
-				course_id: courseID
-			}
-		};
-		sendReq(urlGet, optionsGet).then(res => {
-			setScholarshipList(res.data);
-		}).catch(err => {
-			flashMsg('error', 'Failed to get scholarship list');
-		});
+		setDisabled(false);
 	}
 
 	const responseHTML = !(courseID === '' || scholarshipList.length === 0) ? Object.keys(scholarshipList[scholarshipIndex].response).map((key) =>
@@ -101,7 +103,7 @@ function ScholarshipReview() {
 
 	let noScholarships;
 	if (courseID === '') {
-		noScholarships = <></>;
+		noScholarships = null;
 	} else if (scholarshipList.length === 0) {
 		noScholarships = <p className='mt-9 text-2xl'>No undecided scholarships found for this course</p>;
 	}
@@ -147,13 +149,13 @@ function ScholarshipReview() {
 							<Button bgColor='gray' txtColor='white' className='w-60 h-12 mr-6' onClick={onBack} disabled={(scholarshipIndex === 0) ? true : false}>
 								Back (A)
 							</Button>
-							<Button bgColor='white' txtColor='black' className='w-52 h-12 mr-6' onClick={onReject}>
+							<Button bgColor='white' txtColor='black' className='w-52 h-12 mr-6' onClick={onReject} disabled={disabled}>
 								Reject (W)
 							</Button>
-							<Button bgColor='white' txtColor='black' className='w-52 h-12 mr-6' onClick={onPartial}>
+							<Button bgColor='white' txtColor='black' className='w-52 h-12 mr-6' onClick={onPartial} disabled={disabled}>
 								Partial (S)
 							</Button>
-							<Button bgColor='white' txtColor='black' className='w-52 h-12 mr-6' onClick={onFull}>
+							<Button bgColor='white' txtColor='black' className='w-52 h-12 mr-6' onClick={onFull} disabled={disabled}>
 								Full (E)
 							</Button>
 							<Button bgColor='white' txtColor='black' className='w-80 h-12 mr-6'>
