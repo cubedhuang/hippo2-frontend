@@ -50,10 +50,10 @@ function Page({ leftChildren, rightChildren, leftRightRatio, maxWidth, developer
 	}
 
 	return (
-		<div className={`container ${maxWidthClass} flex flex-wrap mx-auto my-10 overflow-hidden rounded-xl`}>
+		<div className={`container ${maxWidthClass} flex flex-wrap mx-auto my-10 overflow-hidden md:rounded-xl`}>
 			<div className={`w-full ${leftWidthClass} text-white bg-green p-7 flex flex-col`}>
 				{leftChildren}
-				<TTLogo developers={developers} className='mt-auto'></TTLogo>
+				<TTLogo developers={developers} className='mt-auto'/>
 			</div>
 			<div className={`w-full ${rightWidthClass} bg-white p-7`}>
 				{rightChildren}

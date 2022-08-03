@@ -35,6 +35,8 @@ import GeneralQuestions from './pages/generalQuestions/generalQuestions';
 import ScholarshipSelectCourse from './pages/scholarshipSelectCourse/scholarshipSelectCourse';
 import TaxDetails from './pages/taxDetails/tax-details';
 import ScholarshipReview from './pages/scholarshipReview/scholarshipReview';
+import BackOfficeDashboard from './pages/BackOfficeDashboard/BackOfficeDashboard';
+import UnderConstruction from './pages/BackOfficeDashboard/UnderConstruction';
 import './App.css';
 
 function App() {
@@ -64,6 +66,13 @@ function App() {
 								}/>
 								<Route path='todo' element={<ToDo />}/>
 								<Route path='account' element={<AccountSettings />}/>
+								<Route path='*' element={<PageNotFound />} />
+							</Route>
+							<Route path='/backoffice' element={<BackOfficeDashboard/>}>
+								<Route index element={<Navigate to='customers' replace />}/>
+								<Route path='customers' element={<UnderConstruction />}/>
+								<Route path='courses' element={<UnderConstruction />}/>
+								<Route path='scholarships' element={<UnderConstruction />}/>
 								<Route path='*' element={<PageNotFound />} />
 							</Route>
 							<Route path='/auth/google/' element={<GoogleAuth />}/>
