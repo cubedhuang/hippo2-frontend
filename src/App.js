@@ -34,6 +34,7 @@ import ApplicationQuestions from './pages/applicationQuestions/applicationQuesti
 import GeneralQuestions from './pages/generalQuestions/generalQuestions';
 import ScholarshipSelectCourse from './pages/scholarshipSelectCourse/scholarshipSelectCourse';
 import TaxDetails from './pages/taxDetails/tax-details';
+import ScholarshipReview from './pages/scholarshipReview/scholarshipReview';
 import './App.css';
 
 function App() {
@@ -129,6 +130,7 @@ function App() {
 									<TaxDetails />
 								</ProtectedRoute>
 							}/>
+							<Route path='/backoffice/scholarshipreview' element={<ScholarshipReview />}/>
 							<Route path='*' element={<PageNotFound />} />
 						</Routes>
 					</div>
