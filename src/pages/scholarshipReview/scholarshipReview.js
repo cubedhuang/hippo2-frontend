@@ -2,6 +2,7 @@ import Button from "../../components/button/button";
 import { useState, useEffect } from "react";
 import { useFlashMsg } from "../../services/flashMsg";
 import { useAuth } from "../../../services/authentication";
+import { useLocation } from "react-router-dom";
 import baseUrl from "../../apiUrls";
 
 function ScholarshipReview() {
@@ -29,7 +30,7 @@ function ScholarshipReview() {
 		}).catch(err => {
 			flashMsg('error', 'Failed to get course list');
 		});
-	}, [index, flashMsg]);
+	}, [index, flashMsg, autoAuthReq, here]);
 
 	const handleChange = (courseID) => {
 		setCourseID(courseID.target.value);
@@ -86,7 +87,7 @@ function ScholarshipReview() {
 					course_id: courseID
 				}
 			};
-			const res = await authAuthReq(urlGet, optionsGet, here)
+			const res = await autoAuthReq(urlGet, optionsGet, here);
 			setScholarshipList(res.data);
 		})().catch(err => {
 			flashMsg('error', 'Failed to submit decision');
