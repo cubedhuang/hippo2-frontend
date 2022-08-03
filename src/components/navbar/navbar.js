@@ -89,6 +89,7 @@ function Navbar({ isStudentRegistered }) {
 			</header>
 
 			<button className={`menu lg:hidden absolute top-5 right-4 h-8 w-8 rounded-full transition-colors ${menuButtonColor}`}
+				title="Open Navigation Menu"
 				onClick={() => setMobileMenuOpened(!mobileMenuOpened)}>
 				<FontAwesomeIcon className={mobileMenuOpened ?
 					`mt-1 h-6 w-6 text-black` :
